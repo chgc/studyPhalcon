@@ -1,5 +1,3 @@
-studyPhalcon
-============
 # Phalcon Study Note
 
 ##linkto遇到subfolder形式的website
