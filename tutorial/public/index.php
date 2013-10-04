@@ -12,6 +12,16 @@ try {
     //Create a DI
     $di = new Phalcon\DI\FactoryDefault();
 
+    //Set the database service
+    $di->set('db', function(){
+        return new \Phalcon\Db\Adapter\Pdo\Mysql(array(
+            "host" => "localhost",
+            "username" => "phalcon",
+            "password" => "1234",
+            "dbname" => "phalcon_lesson1"
+        ));
+    });
+
     //Setting up the view component
     $di->set('view', function(){
         $view = new \Phalcon\Mvc\View();
@@ -21,10 +31,10 @@ try {
 
 // Setting up the view component
 $di->set(
-    'url', 
+    'url',
     function() {
         $url = new \Phalcon\Mvc\Url();
-        $url->setBaseUri('/tutorial/');
+        $url->setBaseUri('');
         return $url;
     }
 );
